@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do Ver.2</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <header>
+        <!-- this is the big title -->
+        <h1>To-do List Version 2</h1>
+
+        <form id="new-task-form">
+            <!-- this is a text box (input type is text)-->
+            <!--the placeholder is the faded font insdie the text box
+                (usually tells the user what to put in the text box)-->
+            <input
+                type="text"
+                name="new-task-input"
+                id="new-task-input"
+                placeholder="What do you have planned?" />
+
+            <!-- this is a add task button, input type is submit -->
+            <input
+                type="submit"
+                id="new-task-submit"
+                value="Add task" /> 
+        </form>
+    </header>
+
+    <main>
+        <section class="task-list">
+            <h2>Tasks</h2>
+            
+            <div id="tasks">
+                <!--<div class="task">
+                    <div class="content">
+                        <input
+                            type="text"
+                            class="text"
+                            value="My shiny task"
+                            readonly> //only can read, cannot edit to change
+                    </div>
+    
+                    <div class="actions">
+                        <button class="edit">Edit</button>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div> -->
+            </div>  
+        </section>
+    </main>
+</body>
+</html>

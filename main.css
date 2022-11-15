@@ -1,0 +1,177 @@
+/* The :root selector matches the document's root element.
+In HTML, the root element is always the html element. */
+:root {
+    --dark: #373151;
+    --darker: #1f2937;
+    --darkest: #111827;
+    --gray: #6b7280;
+    --light: #eee;
+    --pink: #ec5899;
+    --purple: #8b5cf6;
+}
+/* here we define some color as variables for later usage */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+body {
+    display: flex; /*recall it will make elements take only as much space as needed and stay beside each other*/
+    flex-direction: column; /*make it flex display in vertical*/
+
+    /* recall: 100vh = 100 viewport height, takes 100%of your viewport(e.g. a window of a browser) */
+    min-height: 100vh;
+
+    /* set the background as dark color variable */
+    background: var(--dark);
+
+    /* recall this changes the content color, i.e. here usually the text color */
+    color: #fff;
+}
+
+header {
+    /* recall rem=root em = The root element's font-size */
+    /*recall padding adds space around(outside) the object, but still inside the border,
+    in this case, 2rem top & bot, 1 rem left & right*/
+    padding: 2rem 1rem; 
+    max-width: 800px;
+    width: 100%;
+
+    /* recall margin creates space outside the border of the element */
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 300; /*recall: how bold the font is*/
+    color: var(--gray); /*recall it changes the font color*/
+    margin-bottom: 1rem;
+}
+
+#new-task-form {
+    display: flex;
+}
+
+input, button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#new-task-input {
+    flex: 1 1 0%;
+    background-color: var(--darker);
+    padding: 1rem; /*create space around text inside the border*/
+    border-radius: 1rem; /*makes the border round-ish*/
+    margin-right: 1rem; /*create space outside the border*/
+    color: var(--light); /*changes the text color inside*/
+    font-size: 1.25rem;
+}
+
+#new-task-input::placeholder {
+    color: var(--gray);
+}
+
+#new-task-submit {
+    color: var(--pink);
+    font-size: 1.25rem;
+    font-weight: 700;
+    background-image: linear-gradient(to right, var(--pink), var(--purple));
+
+    /* this is a new trick pulling here :O */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* it makes the background image color to fill inside the text instead */
+
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#new-task-submit:hover {
+    opacity: 0.8;
+}
+
+#new-task-submit:active {
+    opacity: .6;
+}
+
+main {
+    flex: 1 1 0%;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.task-list {
+    padding: 1rem;
+}
+
+.task-list h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+#tasks .task {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--darkest);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* this makese sure the content of the task element can show as much as the screen widens */
+#tasks .task .content {
+    flex: 1 1 0%;
+}
+
+#tasks .task .content .text {
+    color: var(--light);
+    font-size: 1.125 rem;
+    width: 100%;
+    display: block;
+    transition: .5s;
+}
+
+/* in the case of if we are editing the task items
+(i.e. the condition will be "not read only"), the style will be in as the following */
+#tasks .task .content .text:not(:read-only) {
+    color: var(--pink);    
+}
+
+#tasks .task .actions {
+    display: flex;
+    margin: 0 -0.5rem;
+}
+
+.task .actions button {
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.task .actions button:hover {
+    opacity: 0.8;
+}
+
+.task .actions button:active {
+    opacity: .6;
+}
+
+.task .actions .edit {
+    background-image: linear-gradient(to right, var(--pink), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.task .actions .delete {
+    color: crimson;
+}
